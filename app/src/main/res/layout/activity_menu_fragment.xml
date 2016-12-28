@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="#cccbcb"
+              android:orientation="vertical">
+
+    <FrameLayout
+        android:id="@+id/ll_fl_main_display"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="1px"
+        android:layout_weight="1"
+        android:background="@android:color/white"/>
+
+
+    <!--屏幕底部，菜单部分。-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#FFFFFF"
+        android:elevation="10dp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/ll_ll_iv_home"
+            style="@style/style_menu"
+            android:src="@mipmap/icon_shouye"/>
+
+        <ImageView
+            android:id="@+id/ll_ll_iv_conv"
+            style="@style/style_menu"
+            android:src="@mipmap/icon_liaotian"/>
+
+        <ImageView
+            android:id="@+id/ll_ll_iv_cont"
+            style="@style/style_menu"
+            android:src="@mipmap/icon_tongxunlu"/>
+
+        <ImageView
+            android:id="@+id/ll_ll_iv_pers"
+            style="@style/style_menu"
+            android:src="@mipmap/icon_gerenzhongxin"/>
+
+    </LinearLayout>
+</LinearLayout>

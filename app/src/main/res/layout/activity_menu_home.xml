@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:id="@+id/activity_main"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="#dcdcdc"
+              android:orientation="vertical">
+
+    <!--屏幕顶部-->
+    <RelativeLayout
+        style="@style/style_title_size"
+        android:background="#409dcf">
+
+        <!--单击进入，左滑动式菜单。-->
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="8dp"
+            android:src="@mipmap/leftbar_icon_cebian"/>
+
+        <!--显示，logo带软件名称的图片。-->
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:src="@mipmap/pic_biati"/>
+
+    </RelativeLayout>
+
+    <include layout="@layout/activity_slide"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white"
+        android:orientation="horizontal">
+
+        <ImageView
+            style="@style/style_home_item"
+            android:src="@mipmap/icon_haoxiangmufabu"/>
+
+        <ImageView
+            style="@style/style_home_item"
+            android:src="@mipmap/icon_ceoshangxueyuan"/>
+
+        <ImageView
+            style="@style/style_home_item"
+            android:src="@mipmap/icon_vip"/>
+
+        <ImageView
+            style="@style/style_home_item"
+            android:src="@mipmap/icon_zhanlv"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white"
+        android:orientation="horizontal"
+        android:paddingBottom="8dp">
+
+        <ImageView
+            style="@style/style_home_item"
+            android:src="@mipmap/icon_lianmengshangcheng"/>
+
+        <ImageView
+            style="@style/style_home_item"
+            android:src="@mipmap/icon_touzituan"/>
+
+        <ImageView
+            style="@style/style_home_item"
+            android:src="@mipmap/icon_zhongchou"/>
+
+        <ImageView
+            style="@style/style_home_item"
+            android:src="@mipmap/icon_aixin"/>
+
+    </LinearLayout>
+
+    <!--商业头条-->
+    <TextView
+        android:id="@+id/ll_tv_bs_head_line"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="6dp"
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="12dp"
+        android:layout_marginTop="6dp"
+        android:background="@mipmap/img_headlines"
+        android:ellipsize="marquee"
+        android:focusable="true"
+        android:gravity="center_vertical"
+        android:inputType="text"
+        android:marqueeRepeatLimit="marquee_forever"
+        android:paddingLeft="72dp"
+        android:scrollHorizontally="true"
+        android:text="hello my worsadfdsfsdfsdfsdfsfld ishello hello my worsadfdsfsdfsdfsdfsfld ishello hello my worsadfdsfsdfsdfsdfsfld ishello my hello my hello my  hereworld is hereworld is here"/>
+
+    <!--屏幕中心，主要显示部分。-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/white"
+        android:orientation="vertical"
+        android:padding="45dp">
+
+
+        
+    </LinearLayout>
+
+</LinearLayout>
