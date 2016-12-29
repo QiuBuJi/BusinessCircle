@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@mipmap/pic_xiayu"
+              android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="180dp">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/ic_launcher"
+            android:layout_alignBottom="@+id/ll_ll_tv_name"
+            android:layout_toLeftOf="@+id/ll_ll_tv_medal"
+            android:layout_toStartOf="@+id/ll_ll_tv_medal"
+            android:layout_marginRight="16dp"
+            android:layout_marginEnd="16dp"/>
+
+        <TextView
+            android:id="@+id/ll_ll_tv_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="125dp"
+            android:layout_marginStart="125dp"
+            android:layout_marginTop="70dp"
+            android:text="qbj"
+            android:textColor="@android:color/white"/>
+
+        <TextView
+            android:id="@+id/ll_ll_tv_medal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/ll_ll_tv__weather_location"
+            android:layout_alignBottom="@+id/ll_ll_tv__weather_location"
+            android:layout_alignLeft="@+id/ll_ll_tv_name"
+            android:layout_alignStart="@+id/ll_ll_tv_name"
+            android:text="积分：1000"
+            android:textColor="@android:color/white"/>
+
+        <TextView
+            android:id="@+id/ll_ll_tv__weather_location"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/ll_ll_tv_name"
+            android:layout_marginLeft="26dp"
+            android:layout_marginStart="26dp"
+            android:layout_marginTop="16dp"
+            android:layout_toEndOf="@+id/ll_ll_tv_medal"
+            android:layout_toRightOf="@+id/ll_ll_tv_medal"
+            android:text="0℃\n北京"
+            android:textColor="@android:color/white"/>
+
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="240dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+
+        <LinearLayout style="@style/style_slide_menu_item_LinearLayout">
+
+            <ImageView
+                style="@style/style_slide_menu_item_ImageView"
+                android:src="@mipmap/leftbar_icon_baibaoxiang"/>
+
+            <TextView
+                style="@style/style_slide_menu_item_TextView"
+                android:text="百宝箱"/>
+
+            <ImageView
+                style="@style/style_slide_menu_item_ImageView"
+                android:src="@mipmap/leftbar_icon_jiantou"/>
+        </LinearLayout>
+
+        <LinearLayout style="@style/style_slide_menu_item_LinearLayout">
+
+            <ImageView
+                style="@style/style_slide_menu_item_ImageView"
+                android:src="@mipmap/leftbar_icon_shoucang"/>
+
+            <TextView
+                style="@style/style_slide_menu_item_TextView"
+                android:text="我的收藏"/>
+
+            <ImageView
+                style="@style/style_slide_menu_item_ImageView"
+                android:src="@mipmap/leftbar_icon_jiantou"/>
+        </LinearLayout>
+
+        <LinearLayout style="@style/style_slide_menu_item_LinearLayout">
+
+            <ImageView
+                style="@style/style_slide_menu_item_ImageView"
+                android:src="@mipmap/leftbar_icon_zhongchou"/>
+
+            <TextView
+                style="@style/style_slide_menu_item_TextView"
+                android:text="我的众筹"/>
+
+            <ImageView
+                style="@style/style_slide_menu_item_ImageView"
+                android:src="@mipmap/leftbar_icon_jiantou"/>
+        </LinearLayout>
+
+        <LinearLayout style="@style/style_slide_menu_item_LinearLayout">
+
+            <ImageView
+                style="@style/style_slide_menu_item_ImageView"
+                android:src="@mipmap/leftbar_icon_gouwuche"/>
+
+            <TextView
+                android:id="@+id/textView4"
+                style="@style/style_slide_menu_item_TextView"
+                android:text="我的购物车"/>
+
+            <ImageView
+                style="@style/style_slide_menu_item_ImageView"
+                android:src="@mipmap/leftbar_icon_jiantou"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"/>
+</LinearLayout>

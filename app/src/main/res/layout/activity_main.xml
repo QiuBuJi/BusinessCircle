@@ -1,12 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_main"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="com.wp.businesscircle.MainActivity">
+                xmlns:tools="http://schemas.android.com/tools"
+                android:id="@+id/activity_main"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:context="com.wp.businesscircle.MainActivity">
 
-    <include layout="@layout/activity_menu_fragment"/>
+    <include layout="@layout/activity_slide_menu"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:translationX="230dp">
+
+        <include layout="@layout/activity_menu_fragment"/>
+    </LinearLayout>
     <!--<include layout="@layout/activity_menu_home" />-->
     <!--<include layout="@layout/activity_menu_contact" />-->
     <!--<include layout="@layout/activity_menu_conversation" />-->

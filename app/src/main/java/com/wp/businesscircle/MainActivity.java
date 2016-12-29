@@ -34,6 +34,7 @@ import static com.wp.businesscircle.R.mipmap.*;
  *     2016年12月22日~24日 学习反射
  *     2016年12月25日      实现“幻灯片”功能，用反射设置幻灯片翻页速度。
  *     2016年12月26日~27日 学习ListView，刷新&加载，数据原理。
+ *     2016年12月28日~29日 学习侧滑原理。
  *
  * */
 public class MainActivity extends AppCompatActivity implements BaseActivity, View.OnClickListener {
