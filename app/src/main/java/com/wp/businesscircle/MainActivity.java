@@ -1,9 +1,7 @@
 package com.wp.businesscircle;
 
-import android.app.Activity;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
-import android.graphics.drawable.shapes.OvalShape;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -13,7 +11,6 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.google.gson.Gson;
 import com.wp.fragments.PageContactFragmentActivity;
 import com.wp.fragments.PageConversationFragmentActivity;
 import com.wp.fragments.PageHomeFragmentActivity;
@@ -39,7 +36,7 @@ import static com.wp.businesscircle.R.mipmap.*;
  *     2016年12月26日~27日 学习ListView，刷新&加载，数据原理。
  *
  * */
-public class MainActivity extends Activity implements BaseActivity, View.OnClickListener {
+public class MainActivity extends AppCompatActivity implements BaseActivity, View.OnClickListener {
 
     public TextView ll_tv_bs_head_line;
     public FrameLayout ll_fl_main_display;
@@ -78,8 +75,6 @@ public class MainActivity extends Activity implements BaseActivity, View.OnClick
         ll_ll_iv_conv.setOnClickListener(this);
         ll_ll_iv_cont.setOnClickListener(this);
         ll_ll_iv_pers.setOnClickListener(this);
-
-        OvalShape os = new OvalShape();
 
     }
 
