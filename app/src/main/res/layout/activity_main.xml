@@ -6,15 +6,15 @@
                 android:layout_height="match_parent"
                 tools:context="com.wp.businesscircle.MainActivity">
 
-    <include layout="@layout/activity_slide_menu"/>
 
-    <LinearLayout
+    <com.wp.businesscircle.SideSlideBar
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:translationX="230dp">
+        android:layout_height="match_parent">
+
+        <include layout="@layout/activity_slide_menu"/>
 
         <include layout="@layout/activity_menu_fragment"/>
-    </LinearLayout>
+    </com.wp.businesscircle.SideSlideBar>
     <!--<include layout="@layout/activity_menu_home" />-->
     <!--<include layout="@layout/activity_menu_contact" />-->
     <!--<include layout="@layout/activity_menu_conversation" />-->

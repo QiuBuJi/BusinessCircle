@@ -1,14 +1,17 @@
 package com.wp.businesscircle;
 
+import android.animation.ObjectAnimator;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
-import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.wp.fragments.PageContactFragmentActivity;
@@ -16,9 +19,14 @@ import com.wp.fragments.PageConversationFragmentActivity;
 import com.wp.fragments.PageHomeFragmentActivity;
 import com.wp.fragments.PagePersonalFragmentActivity;
 
-import java.util.ArrayList;
-
-import static com.wp.businesscircle.R.mipmap.*;
+import static com.wp.businesscircle.R.mipmap.icon_gerenzhongxin;
+import static com.wp.businesscircle.R.mipmap.icon_gerenzhongxin_click;
+import static com.wp.businesscircle.R.mipmap.icon_liaotian;
+import static com.wp.businesscircle.R.mipmap.icon_liaotian_click;
+import static com.wp.businesscircle.R.mipmap.icon_shouye;
+import static com.wp.businesscircle.R.mipmap.icon_shouye_click;
+import static com.wp.businesscircle.R.mipmap.icon_tongxunlu;
+import static com.wp.businesscircle.R.mipmap.icon_tongxunlu_click;
 
 /*
  * 软件  名：生意圈(Business Circle)
@@ -34,7 +42,8 @@ import static com.wp.businesscircle.R.mipmap.*;
  *     2016年12月22日~24日 学习反射
  *     2016年12月25日      实现“幻灯片”功能，用反射设置幻灯片翻页速度。
  *     2016年12月26日~27日 学习ListView，刷新&加载，数据原理。
- *     2016年12月28日~29日 学习侧滑原理。
+ *     2016年12月28日~29日 学习侧滑原理。晚上，基本侧滑界面完成。
+ *     2016年12月30日      侧滑完善中...
  *
  * */
 public class MainActivity extends AppCompatActivity implements BaseActivity, View.OnClickListener {
@@ -47,6 +56,13 @@ public class MainActivity extends AppCompatActivity implements BaseActivity, Vie
     public ImageView ll_ll_iv_pers;
     public FragmentTransaction fbt;
     public FragmentManager fm;
+    private LinearLayout mll_main;
+    private LinearLayout mll_SlideMenu;
+    private android.widget.RelativeLayout mActivityMain;
+
+    enum MenuBar {
+        home, conversation, contact, personal
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,6 +84,9 @@ public class MainActivity extends AppCompatActivity implements BaseActivity, Vie
         ll_ll_iv_cont = (ImageView) findViewById(R.id.ll_ll_iv_cont);
         ll_ll_iv_pers = (ImageView) findViewById(R.id.ll_ll_iv_pers);
 
+        mll_main = (LinearLayout) findViewById(R.id.ll_Main);
+        mll_SlideMenu = (LinearLayout) findViewById(R.id.ll_SlideMenu);
+        mActivityMain = (RelativeLayout) findViewById(R.id.activity_main);
     }
 
     @Override
@@ -84,6 +103,7 @@ public class MainActivity extends AppCompatActivity implements BaseActivity, Vie
         fm = getFragmentManager();
 
         switchPage(MenuBar.home);
+        mll_SlideMenu.setTranslationX(-mll_SlideMenu.getWidth() * 0.6f);
 
     }
 
@@ -162,10 +182,6 @@ public class MainActivity extends AppCompatActivity implements BaseActivity, Vie
                 ll_ll_iv_pers.setImageResource(icon_gerenzhongxin_click);
                 break;
         }
-    }
-
-    enum MenuBar {
-        home, conversation, contact, personal
     }
 
 }
