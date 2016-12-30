@@ -132,6 +132,12 @@ public class MainActivity extends AppCompatActivity implements BaseActivity, Vie
     }
 
     public void switchPage(MenuBar menuBar) {
+
+        ll_ll_iv_home.setImageResource(icon_shouye);
+        ll_ll_iv_conv.setImageResource(icon_liaotian);
+        ll_ll_iv_cont.setImageResource(icon_tongxunlu);
+        ll_ll_iv_pers.setImageResource(icon_gerenzhongxin);
+
         switch (menuBar) {
             case home:
                 PageHomeFragmentActivity f1 = new PageHomeFragmentActivity();
@@ -141,9 +147,6 @@ public class MainActivity extends AppCompatActivity implements BaseActivity, Vie
                 fbt.commit();
 
                 ll_ll_iv_home.setImageResource(icon_shouye_click);
-                ll_ll_iv_conv.setImageResource(icon_liaotian);
-                ll_ll_iv_cont.setImageResource(icon_tongxunlu);
-                ll_ll_iv_pers.setImageResource(icon_gerenzhongxin);
                 break;
             case conversation:
                 PageConversationFragmentActivity f2 = new PageConversationFragmentActivity();
@@ -152,10 +155,7 @@ public class MainActivity extends AppCompatActivity implements BaseActivity, Vie
                 fbt.replace(R.id.ll_fl_main_display, f2);
                 fbt.commit();
 
-                ll_ll_iv_home.setImageResource(icon_shouye);
                 ll_ll_iv_conv.setImageResource(icon_liaotian_click);
-                ll_ll_iv_cont.setImageResource(icon_tongxunlu);
-                ll_ll_iv_pers.setImageResource(icon_gerenzhongxin);
                 break;
             case contact:
                 PageContactFragmentActivity f3 = new PageContactFragmentActivity();
@@ -164,10 +164,7 @@ public class MainActivity extends AppCompatActivity implements BaseActivity, Vie
                 fbt.replace(R.id.ll_fl_main_display, f3);
                 fbt.commit();
 
-                ll_ll_iv_home.setImageResource(icon_shouye);
-                ll_ll_iv_conv.setImageResource(icon_liaotian);
                 ll_ll_iv_cont.setImageResource(icon_tongxunlu_click);
-                ll_ll_iv_pers.setImageResource(icon_gerenzhongxin);
                 break;
             case personal:
                 PagePersonalFragmentActivity f4 = new PagePersonalFragmentActivity();
@@ -176,9 +173,6 @@ public class MainActivity extends AppCompatActivity implements BaseActivity, Vie
                 fbt.replace(R.id.ll_fl_main_display, f4);
                 fbt.commit();
 
-                ll_ll_iv_home.setImageResource(icon_shouye);
-                ll_ll_iv_conv.setImageResource(icon_liaotian);
-                ll_ll_iv_cont.setImageResource(icon_tongxunlu);
                 ll_ll_iv_pers.setImageResource(icon_gerenzhongxin_click);
                 break;
         }

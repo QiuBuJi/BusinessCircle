@@ -7,14 +7,15 @@
                 tools:context="com.wp.businesscircle.MainActivity">
 
 
-    <com.wp.businesscircle.SideSlideBar
+    <com.wp.businesscircle.SlideSideBar
+        android:id="@+id/rl_ssb_SlideSideBar"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <include layout="@layout/activity_slide_menu"/>
 
         <include layout="@layout/activity_menu_fragment"/>
-    </com.wp.businesscircle.SideSlideBar>
+    </com.wp.businesscircle.SlideSideBar>
     <!--<include layout="@layout/activity_menu_home" />-->
     <!--<include layout="@layout/activity_menu_contact" />-->
     <!--<include layout="@layout/activity_menu_conversation" />-->
