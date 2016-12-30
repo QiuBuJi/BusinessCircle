@@ -29,10 +29,6 @@ import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
-
-import butterknife.Bind;
-import butterknife.ButterKnife;
-
 import static com.wp.businesscircle.R.mipmap.pic_1;
 import static com.wp.businesscircle.R.mipmap.pic_2;
 import static com.wp.businesscircle.R.mipmap.pic_3;
@@ -49,7 +45,6 @@ public class PageHomeFragmentActivity extends Fragment implements BaseActivity, 
     public LinearLayout slide_dot_group;
     public ViewPager slide_Pager;
     public TextView slide_text;
-    @Bind(R.id.ll_rl_iv_SwitchSlideMenu)
     ImageView ll_rl_iv_SwitchSlideMenu;
     private Timer timer;
     Handler handler = new Handler() {
@@ -84,7 +79,6 @@ public class PageHomeFragmentActivity extends Fragment implements BaseActivity, 
         view = inflater.inflate(R.layout.activity_menu_home, null);
         initView(inflater, container, savedInstanceState);
         initView();
-        ButterKnife.bind(this, view);
         return view;
     }
 
@@ -92,6 +86,7 @@ public class PageHomeFragmentActivity extends Fragment implements BaseActivity, 
         slide_dot_group = (LinearLayout) view.findViewById(R.id.slide_dot_group);
         slide_Pager = (ViewPager) view.findViewById(R.id.slide_Pager);
         slide_text = (TextView) view.findViewById(R.id.slide_text);
+        ll_rl_iv_SwitchSlideMenu = (ImageView) view.findViewById(R.id.ll_rl_iv_SwitchSlideMenu);
     }
 
     @Override
@@ -167,12 +162,6 @@ public class PageHomeFragmentActivity extends Fragment implements BaseActivity, 
     public void onDestroy() {
         super.onDestroy();
         timer.cancel();
-    }
-
-    @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-        ButterKnife.unbind(this);
     }
 
     @Override

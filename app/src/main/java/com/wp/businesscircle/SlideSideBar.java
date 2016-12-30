@@ -28,8 +28,8 @@ public class SlideSideBar extends ViewGroup {
     private float mOffsetSum;//每次偏移距离的合。侧滑菜单（mLeftView），滑动有关。
     private long mOffsetCount;//偏移的次数。侧滑菜单（mLeftView），滑动有关。
     private Point mPt;
-    private double mDuration = 0.8;//持续时间
-    private boolean mShowing;
+    private double mDuration = 1.8;//持续时间
+    private boolean mShowing;//侧滑菜单显示状态
 
     /**
      * 初始化
@@ -99,7 +99,6 @@ public class SlideSideBar extends ViewGroup {
     @Override
     public boolean onTouchEvent(MotionEvent event) {
 
-
         int width = getWidth();//取出本容器的宽度
         mParkPos = width * 0.68;//停靠位置
         double limit = width * 0.4;//mLimitX以此limit为临界值。LimitX>limit侧滑菜单（mLeftView）打开，否则关闭。
@@ -107,6 +106,7 @@ public class SlideSideBar extends ViewGroup {
         switch (event.getAction()) {
             case MotionEvent.ACTION_DOWN:
                 touchX = event.getX();
+                mScroller.forceFinished(true);//当在动画时，手指点击停止动画。
                 break;
             case MotionEvent.ACTION_UP:
 
