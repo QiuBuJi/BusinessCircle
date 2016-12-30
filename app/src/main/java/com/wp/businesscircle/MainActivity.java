@@ -107,6 +107,7 @@ public class MainActivity extends AppCompatActivity implements BaseActivity, Vie
         switchPage(MenuBar.home);
         mll_SlideMenu.setTranslationX(-mll_SlideMenu.getWidth() * 0.6f);
 
+
     }
 
     @Override
