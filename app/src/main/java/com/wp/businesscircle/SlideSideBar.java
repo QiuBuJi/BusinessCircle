@@ -29,6 +29,7 @@ public class SlideSideBar extends ViewGroup {
     private long mOffsetCount;//偏移的次数。侧滑菜单（mLeftView），滑动有关。
     private Point mPt;
     private double mDuration = 0.8;//持续时间
+    private boolean mShowing;
 
     /**
      * 初始化
@@ -112,15 +113,8 @@ public class SlideSideBar extends ViewGroup {
                 mOffsetSum /= mOffsetCount;//求出平均值
                 //惯性滑动
                 if (Math.abs(mOffsetSum) > 6) {//看平均值，是否超过阈值。
+                    setMenuShowing(mMoveOffset > 0);//mMoveOffset可用于判断手指滑动方向
 
-                    if (mMoveOffset > 0) {//mMoveOffset可用于判断手指滑动方向，
-                        // 向右滑动。→
-                        double offsetX = mParkPos - mLimitX;//求出右停靠位置mParkPos与mLimitX之间的位移
-                        mScroller.startScroll((int) mLimitX, 0, (int) (offsetX), 0, (int) ((int) Math.abs(offsetX) * mDuration));
-                    } else {
-                        //向左滑动 ←
-                        mScroller.startScroll((int) mLimitX, 0, (int) (-mLimitX), 0, (int) ((int) Math.abs(mLimitX) * mDuration));
-                    }
                     //临界值滑动
                 } else {
                     if (mLimitX > limit) {//limit为临界值
@@ -131,14 +125,14 @@ public class SlideSideBar extends ViewGroup {
                         //向左滑动 ←
                         mScroller.startScroll((int) mLimitX, 0, (int) (-mLimitX), 0, (int) ((int) Math.abs(mLimitX) * mDuration));
                     }
+
+                    //这个是mScroller需要
+                    invalidate();
                 }
 
                 //手指离开后，复原数值。
                 mOffsetCount = 0;
                 mOffsetSum = 0;
-
-                //这个是mScroller需要
-                invalidate();
                 break;
             case MotionEvent.ACTION_MOVE:
                 moveX = event.getX();
@@ -177,5 +171,32 @@ public class SlideSideBar extends ViewGroup {
 
 
         }
+    }
+
+    /**
+     * 设置菜单显示状态
+     *
+     * @param isShowing 为true，显示侧滑菜单。false，隐藏侧滑菜单。
+     */
+    public void setMenuShowing(boolean isShowing) {
+        mShowing = isShowing;
+        if (mShowing) {//mMoveOffset可用于判断手指滑动方向，
+            // 向右滑动。→
+            double offsetX = mParkPos - mLimitX;//求出右停靠位置mParkPos与mLimitX之间的位移
+            mScroller.startScroll((int) mLimitX, 0, (int) (offsetX), 0, (int) ((int) Math.abs(offsetX) * mDuration));
+        } else {
+            //向左滑动 ←
+            mScroller.startScroll((int) mLimitX, 0, (int) (-mLimitX), 0, (int) ((int) Math.abs(mLimitX) * mDuration));
+        }
+        invalidate();
+    }
+
+    /**
+     * 取菜侧滑单显示状态
+     *
+     * @return true侧滑菜单显示状态、false侧滑菜单隐藏状态。
+     */
+    public boolean getMenuShowing() {
+        return mShowing;
     }
 }

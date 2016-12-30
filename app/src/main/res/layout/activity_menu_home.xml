@@ -12,14 +12,6 @@
         android:background="#409dcf">
 
         <!--单击进入，左滑动式菜单。-->
-        <ImageView
-            android:id="@+id/ll_rl_iv_SwitchSlideMenu"
-            android:padding="10dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_centerVertical="true"
-            android:src="@mipmap/leftbar_icon_cebian"/>
 
         <!--显示，logo带软件名称的图片。-->
         <ImageView
@@ -28,6 +20,15 @@
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
             android:src="@mipmap/pic_biati"/>
+
+        <ImageView
+            android:id="@+id/ll_rl_iv_SwitchSlideMenu"
+            android:padding="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/leftbar_icon_cebian"
+            android:layout_centerVertical="true"
+            android:layout_alignParentStart="true"/>
 
     </RelativeLayout>
 

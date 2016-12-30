@@ -59,6 +59,7 @@ public class MainActivity extends AppCompatActivity implements BaseActivity, Vie
     private LinearLayout mll_main;
     private LinearLayout mll_SlideMenu;
     private android.widget.RelativeLayout mActivityMain;
+    public SlideSideBar rl_ssb_SlideSideBar;
 
     enum MenuBar {
         home, conversation, contact, personal
@@ -87,6 +88,7 @@ public class MainActivity extends AppCompatActivity implements BaseActivity, Vie
         mll_main = (LinearLayout) findViewById(R.id.ll_Main);
         mll_SlideMenu = (LinearLayout) findViewById(R.id.ll_SlideMenu);
         mActivityMain = (RelativeLayout) findViewById(R.id.activity_main);
+        rl_ssb_SlideSideBar = (SlideSideBar) findViewById(R.id.rl_ssb_SlideSideBar);
     }
 
     @Override
@@ -140,7 +142,7 @@ public class MainActivity extends AppCompatActivity implements BaseActivity, Vie
 
         switch (menuBar) {
             case home:
-                PageHomeFragmentActivity f1 = new PageHomeFragmentActivity();
+                PageHomeFragmentActivity f1 = new PageHomeFragmentActivity(this);
 
                 fbt = fm.beginTransaction();
                 fbt.replace(R.id.ll_fl_main_display, f1);
