@@ -1,8 +1,10 @@
 package com.wp.businesscircle;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.graphics.Point;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
@@ -28,7 +30,7 @@ public class SlideSideBar extends ViewGroup {
     private float mOffsetSum;//每次偏移距离的合。侧滑菜单（mLeftView），滑动有关。
     private long mOffsetCount;//偏移的次数。侧滑菜单（mLeftView），滑动有关。
     private Point mPt;
-    private double mDuration = 1.8;//持续时间
+    private double mDuration = 1.2;//持续时间
     private boolean mShowing;//侧滑菜单显示状态
 
     /**
@@ -152,12 +154,16 @@ public class SlideSideBar extends ViewGroup {
     public void setLimit(float x) {
         mLimitX = x;
         mRightView.setTranslationX(mLimitX);//移动“主内容mRightView”
-        float ratio = 0.4f;
+
+
+        float ratio = 0.4f;//mLeftView与mRightView之间的移动比例
         /*
         * 移动“侧滑菜单mLeftView”
         * mLeftView它的移动距离在mRightView移动的基础上缩小了ratio倍。
         * */
-        mLeftView.setTranslationX((mLimitX * ratio) - ((float) mParkPos * ratio));
+        float leftHideOffset = (float) mParkPos * ratio;//左边隐藏部分的位移
+        float shrinkPosX = mLimitX * ratio;//缩小后的x轴向移动位置
+        mLeftView.setTranslationX(shrinkPosX - leftHideOffset);
     }
 
     @Override
@@ -167,9 +173,6 @@ public class SlideSideBar extends ViewGroup {
         if (mScroller.computeScrollOffset()) {//如果在计算偏移，继续。
             setLimit(mScroller.getCurrX());//以mScroller模拟的位置来实现惯性滑动效果。
             invalidate();
-        } else {//计算偏移完成
-
-
         }
     }
 
