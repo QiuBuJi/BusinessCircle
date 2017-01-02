@@ -65,6 +65,8 @@ public class MainActivity extends AppCompatActivity implements BaseActivity, Vie
     public SlideSideBar rl_ssb_SlideSideBar;
     private LinearLayout mSlideMenu_ll_ll_ll_jewelBox;
     private LinearLayout mSlideMenu_ll_ll_ll_myCollection;
+    private boolean IsPressOnce;
+    private long mBackPressMillis;
 
     enum MenuBar {
         home, conversation, contact, personal
@@ -146,6 +148,21 @@ public class MainActivity extends AppCompatActivity implements BaseActivity, Vie
                 startActivity(new Intent(this, MyCollection.class));
                 break;
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        if (IsPressOnce) {
+            IsPressOnce = false;
+            mBackPressMillis = System.currentTimeMillis() - mBackPressMillis;
+
+
+        } else {
+            IsPressOnce = true;
+            mBackPressMillis = System.currentTimeMillis();
+        }
+
     }
 
     public void switchPage(MenuBar menuBar) {
