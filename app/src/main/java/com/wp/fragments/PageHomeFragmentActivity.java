@@ -1,5 +1,6 @@
 package com.wp.fragments;
 
+import android.animation.ObjectAnimator;
 import android.annotation.SuppressLint;
 import android.app.Fragment;
 import android.content.Context;
@@ -9,6 +10,7 @@ import android.os.Handler;
 import android.os.Message;
 import android.support.annotation.Nullable;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -29,6 +31,7 @@ import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
+
 import static com.wp.businesscircle.R.mipmap.pic_1;
 import static com.wp.businesscircle.R.mipmap.pic_2;
 import static com.wp.businesscircle.R.mipmap.pic_3;
@@ -52,10 +55,23 @@ public class PageHomeFragmentActivity extends Fragment implements BaseActivity, 
         public void handleMessage(Message msg) {
             super.handleMessage(msg);
             slide_Pager.setCurrentItem(slide_Pager.getCurrentItem() + 1);
+
+            switch (msg.what) {
+                case 1:
+
+                    float WidthInPixel = mHeadLine.getTextSize() * mHeadLine.getText().length();
+                    // TODO: 2017/1/3/003 跑马文字效果
+//
+//                    ObjectAnimator obj = ObjectAnimator.ofFloat(mHeadLine, "TranslationX", mHeadLine.getWidth(), -WidthInPixel);
+//                    obj.setDuration(2000);
+//                    obj.start();
+                    break;
+            }
         }
     };
     public String[] texts;
     private MainActivity mMainActivity;
+    private TextView mHeadLine;
 
     public PageHomeFragmentActivity() {
 
@@ -87,6 +103,7 @@ public class PageHomeFragmentActivity extends Fragment implements BaseActivity, 
         slide_Pager = (ViewPager) view.findViewById(R.id.slide_Pager);
         slide_text = (TextView) view.findViewById(R.id.slide_text);
         ll_rl_iv_SwitchSlideMenu = (ImageView) view.findViewById(R.id.ll_rl_iv_SwitchSlideMenu);
+        mHeadLine = (TextView) view.findViewById(R.id.Home_ll_ll_tv_head_line);
     }
 
     @Override
@@ -155,6 +172,22 @@ public class PageHomeFragmentActivity extends Fragment implements BaseActivity, 
         } catch (Exception e) {
             e.printStackTrace();
         }
+
+        new Timer().schedule(new TimerTask() {
+            @Override
+            public void run() {
+
+                mHeadLine.setTranslationX(0);
+                mHeadLine.getTextSize();
+                Log.d("msg", "getTextSize: " + mHeadLine.getTextSize());
+                Log.d("msg", "length: " + mHeadLine.getText().length());
+
+                handler.sendEmptyMessage(1);
+                // TODO: 2017/1/3/003
+
+            }
+        }, 0, 3000);
+
 
     }
 

@@ -10,15 +10,12 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
-import android.widget.TextView;
-
 import com.wp.fragments.PageContactFragmentActivity;
 import com.wp.fragments.PageConversationFragmentActivity;
 import com.wp.fragments.PageHomeFragmentActivity;
 import com.wp.fragments.PagePersonalFragmentActivity;
 import com.wp.slide_menu.JewelBox;
 import com.wp.slide_menu.MyCollection;
-
 import static com.wp.businesscircle.R.mipmap.icon_gerenzhongxin;
 import static com.wp.businesscircle.R.mipmap.icon_gerenzhongxin_click;
 import static com.wp.businesscircle.R.mipmap.icon_liaotian;
@@ -51,7 +48,6 @@ import static com.wp.businesscircle.R.mipmap.icon_tongxunlu_click;
  * */
 public class MainActivity extends AppCompatActivity implements BaseActivity, View.OnClickListener {
 
-    public TextView ll_tv_bs_head_line;
     public FrameLayout ll_fl_main_display;
     public ImageView ll_ll_iv_home;
     public ImageView ll_ll_iv_conv;
@@ -83,7 +79,6 @@ public class MainActivity extends AppCompatActivity implements BaseActivity, Vie
 
     @Override
     public void initView() {
-        ll_tv_bs_head_line = (TextView) findViewById(R.id.ll_tv_bs_head_line);
         ll_fl_main_display = (FrameLayout) findViewById(R.id.ll_fl_main_display);
 
 //        底部菜单
