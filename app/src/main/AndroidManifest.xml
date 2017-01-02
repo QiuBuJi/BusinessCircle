@@ -11,13 +11,15 @@
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
-
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+
         <activity android:name="com.wp.personal.ModifyData"/>
         <activity android:name="com.wp.personal.Gift"/>
         <activity android:name="com.wp.personal.Attention"/>
+        <activity android:name="com.wp.slide_menu.JewelBox"/>
+        <activity android:name="com.wp.slide_menu.MyCollection"/>
     </application>
 
 </manifest>

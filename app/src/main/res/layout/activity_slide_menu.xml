@@ -66,6 +66,7 @@
         android:orientation="vertical">
 
         <LinearLayout
+            android:id="@+id/SlideMenu_ll_ll_ll_JewelBox"
             style="@style/style_slide_menu_item_LinearLayout"
             android:background="?android:attr/selectableItemBackground"
             android:clickable="true">
@@ -83,7 +84,9 @@
                 android:src="@mipmap/leftbar_icon_jiantou"/>
         </LinearLayout>
 
-        <LinearLayout style="@style/style_slide_menu_item_LinearLayout">
+        <LinearLayout
+            android:id="@+id/SlideMenu_ll_ll_ll_MyCollection"
+            style="@style/style_slide_menu_item_LinearLayout">
 
             <ImageView
                 style="@style/style_slide_menu_item_ImageView"

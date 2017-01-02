@@ -1,12 +1,10 @@
 package com.wp.businesscircle;
 
-import android.animation.ObjectAnimator;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
-import android.view.MotionEvent;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
@@ -18,6 +16,8 @@ import com.wp.fragments.PageContactFragmentActivity;
 import com.wp.fragments.PageConversationFragmentActivity;
 import com.wp.fragments.PageHomeFragmentActivity;
 import com.wp.fragments.PagePersonalFragmentActivity;
+import com.wp.slide_menu.JewelBox;
+import com.wp.slide_menu.MyCollection;
 
 import static com.wp.businesscircle.R.mipmap.icon_gerenzhongxin;
 import static com.wp.businesscircle.R.mipmap.icon_gerenzhongxin_click;
@@ -34,6 +34,7 @@ import static com.wp.businesscircle.R.mipmap.icon_tongxunlu_click;
  * 年    龄：21
 -- 籍    贯：重庆 --- ---
  * 开发平台：Android studio v2.2.2
+ * 托管平台：GitHub
  * 经历时间：
  *     2016年12月15日      想好项目名称，创建工程。
  *            ~           学习ing...
@@ -44,6 +45,8 @@ import static com.wp.businesscircle.R.mipmap.icon_tongxunlu_click;
  *     2016年12月26日~27日 学习ListView，刷新&加载，数据原理。
  *     2016年12月28日~29日 学习侧滑原理。晚上，基本侧滑界面完成。
  *     2016年12月30日      侧滑完善中...
+ *     2017年12月31日~01日 放元旦
+ *     2017年01月02日      添加页面...
  *
  * */
 public class MainActivity extends AppCompatActivity implements BaseActivity, View.OnClickListener {
@@ -60,6 +63,8 @@ public class MainActivity extends AppCompatActivity implements BaseActivity, Vie
     private LinearLayout mll_SlideMenu;
     private android.widget.RelativeLayout mActivityMain;
     public SlideSideBar rl_ssb_SlideSideBar;
+    private LinearLayout mSlideMenu_ll_ll_ll_jewelBox;
+    private LinearLayout mSlideMenu_ll_ll_ll_myCollection;
 
     enum MenuBar {
         home, conversation, contact, personal
@@ -89,6 +94,9 @@ public class MainActivity extends AppCompatActivity implements BaseActivity, Vie
         mll_SlideMenu = (LinearLayout) findViewById(R.id.ll_SlideMenu);
         mActivityMain = (RelativeLayout) findViewById(R.id.activity_main);
         rl_ssb_SlideSideBar = (SlideSideBar) findViewById(R.id.rl_ssb_SlideSideBar);
+
+        mSlideMenu_ll_ll_ll_jewelBox = (LinearLayout) findViewById(R.id.SlideMenu_ll_ll_ll_JewelBox);
+        mSlideMenu_ll_ll_ll_myCollection = (LinearLayout) findViewById(R.id.SlideMenu_ll_ll_ll_MyCollection);
     }
 
     @Override
@@ -98,6 +106,8 @@ public class MainActivity extends AppCompatActivity implements BaseActivity, Vie
         ll_ll_iv_cont.setOnClickListener(this);
         ll_ll_iv_pers.setOnClickListener(this);
 
+        mSlideMenu_ll_ll_ll_jewelBox.setOnClickListener(this);
+        mSlideMenu_ll_ll_ll_myCollection.setOnClickListener(this);
     }
 
     @Override
@@ -112,8 +122,6 @@ public class MainActivity extends AppCompatActivity implements BaseActivity, Vie
 
     @Override
     public void onClick(View v) {
-
-
         switch (v.getId()) {
             case R.id.ll_ll_iv_home:
                 switchPage(MenuBar.home);
@@ -130,6 +138,12 @@ public class MainActivity extends AppCompatActivity implements BaseActivity, Vie
             case R.id.ll_ll_iv_pers:
                 switchPage(MenuBar.personal);
 
+                break;
+            case R.id.SlideMenu_ll_ll_ll_JewelBox:
+                startActivity(new Intent(this, JewelBox.class));
+                break;
+            case R.id.SlideMenu_ll_ll_ll_MyCollection:
+                startActivity(new Intent(this, MyCollection.class));
                 break;
         }
     }
