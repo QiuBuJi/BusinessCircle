@@ -156,6 +156,7 @@ public class MainActivity extends AppCompatActivity implements BaseActivity, Vie
         if (IsPressOnce) {
             IsPressOnce = false;
             mBackPressMillis = System.currentTimeMillis() - mBackPressMillis;
+            // TODO: 17/1/2/0002  
 
 
         } else {
