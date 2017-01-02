@@ -16,6 +16,8 @@
             </intent-filter>
         </activity>
         <activity android:name="com.wp.personal.ModifyData"/>
+        <activity android:name="com.wp.personal.Gift"/>
+        <activity android:name="com.wp.personal.Attention"/>
     </application>
 
 </manifest>

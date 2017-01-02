@@ -110,7 +110,6 @@
     </RelativeLayout>
 
     <LinearLayout
-        android:id="@+id/ll_ll_personal_ModifyData"
         android:layout_width="match_parent"
         android:layout_height="52dp"
         android:background="#FFFFFF"
@@ -119,6 +118,7 @@
 
         <!--修改资料-->
         <LinearLayout
+            android:id="@+id/ll_ll_personal_ModifyData"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -146,6 +146,7 @@
 
         <!--礼物-->
         <LinearLayout
+            android:id="@+id/ll_ll_personal_Gift"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -173,6 +174,7 @@
 
         <!--我的关注-->
         <LinearLayout
+            android:id="@+id/ll_ll_personal_MyAttention"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
