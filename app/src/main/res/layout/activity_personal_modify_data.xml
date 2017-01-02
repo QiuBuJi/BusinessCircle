@@ -1,39 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#e1e1e1"
+    android:orientation="vertical">
 
-    <LinearLayout
+    <!--屏幕顶部-->
+    <RelativeLayout
+        style="@style/style_title_size"
+        android:background="@color/color_bg_default"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:id="@+id/ModifyData_ll_rl_tv_back"
+            style="@style/ll_ll_iv_top"
+            android:drawableLeft="@mipmap/icon_houtui"
+            android:drawablePadding="4dp"
+            android:paddingLeft="8dp"
+            android:text="返回"/>
+
+        <TextView
+            style="@style/ll_ll_iv_top"
+            android:layout_centerHorizontal="true"
+            android:text="修改资料"/>
+
+        <TextView
+            style="@style/ll_ll_iv_top"
+            android:layout_alignParentRight="true"
+            android:paddingRight="12dp"
+            android:text="保存"/>
+    </RelativeLayout>
+
+    <ScrollView
+        xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="#e1e1e1"
-        android:orientation="vertical">
-
-
-        <LinearLayout style="@style/style_personal_modify_data_item">
-
-            <TextView
-                style="@style/style_Personal_modify_data_text_size"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="       姓名："/>
-
-            <EditText
-                style="@style/style_Personal_modify_data_text_size"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@null"
-                android:gravity="right"
-                android:hint="未填写"/>
-        </LinearLayout>
-
-        <include layout="@layout/activity_item_interval"/>
+        android:layout_height="match_parent">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@android:color/white"
+            android:layout_height="match_parent"
+            android:background="#e1e1e1"
             android:orientation="vertical">
 
             <LinearLayout style="@style/style_personal_modify_data_item">
@@ -42,198 +49,7 @@
                     style="@style/style_Personal_modify_data_text_size"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="绑定手机："/>
-
-                <EditText
-                    android:id="@+id/editText"
-                    style="@style/style_Personal_modify_data_text_size"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@null"
-                    android:gravity="right"
-                    android:hint="未填写"
-                    android:inputType="number"/>
-            </LinearLayout>
-
-            <View style="@style/style_line"/>
-
-            <LinearLayout style="@style/style_personal_modify_data_item">
-
-                <TextView
-                    style="@style/style_Personal_modify_data_text_size"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="          QQ："/>
-
-                <EditText
-                    style="@style/style_Personal_modify_data_text_size"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@null"
-                    android:gravity="right"
-                    android:hint="未填写"
-                    android:inputType="number"/>
-
-            </LinearLayout>
-
-            <View style="@style/style_line"/>
-
-            <LinearLayout style="@style/style_personal_modify_data_item">
-
-                <TextView
-                    style="@style/style_Personal_modify_data_text_size"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="        性别："/>
-
-                <RadioGroup
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <View
-                        android:layout_width="0dp"
-                        android:layout_height="20dp"
-                        android:layout_weight="1"/>
-
-                    <RadioButton
-                        style="@style/style_Personal_modify_data_text_size"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="男"/>
-
-                    <RadioButton
-                        style="@style/style_Personal_modify_data_text_size"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="女"/>
-                </RadioGroup>
-            </LinearLayout>
-
-            <View style="@style/style_line"/>
-
-            <LinearLayout style="@style/style_personal_modify_data_item">
-
-                <TextView
-                    style="@style/style_Personal_modify_data_text_size"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="出生日期："/>
-
-                <EditText
-                    style="@style/style_Personal_modify_data_text_size"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@null"
-                    android:gravity="right"
-                    android:hint="未填写"
-                    />
-            </LinearLayout>
-
-            <View style="@style/style_line"/>
-
-            <LinearLayout style="@style/style_personal_modify_data_item">
-
-                <TextView
-                    style="@style/style_Personal_modify_data_text_size"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="    现居地："/>
-
-                <EditText
-                    style="@style/style_Personal_modify_data_text_size"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@null"
-                    android:gravity="right"
-                    android:hint="未填写"
-                    />
-            </LinearLayout>
-        </LinearLayout>
-
-        <include layout="@layout/activity_item_interval"/>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@android:color/white"
-            android:orientation="vertical">
-
-            <LinearLayout style="@style/style_personal_modify_data_item">
-
-                <TextView
-                    style="@style/style_Personal_modify_data_text_size"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="      邮箱："/>
-
-                <EditText
-                    style="@style/style_Personal_modify_data_text_size"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@null"
-                    android:gravity="right"
-                    android:hint="未填写"
-                    />
-            </LinearLayout>
-
-            <View style="@style/style_line"/>
-
-            <LinearLayout style="@style/style_personal_modify_data_item">
-
-                <TextView
-                    style="@style/style_Personal_modify_data_text_size"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="      年龄："/>
-
-                <EditText
-                    style="@style/style_Personal_modify_data_text_size"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@null"
-                    android:gravity="right"
-                    android:hint="未填写"
-                    />
-            </LinearLayout>
-
-            <View style="@style/style_line"/>
-
-            <LinearLayout style="@style/style_personal_modify_data_item">
-
-                <TextView
-                    style="@style/style_Personal_modify_data_text_size"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="    微信号："/>
-
-                <EditText
-                    style="@style/style_Personal_modify_data_text_size"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@null"
-                    android:gravity="right"
-                    android:hint="未填写"
-                    />
-            </LinearLayout>
-
-        </LinearLayout>
-
-        <include layout="@layout/activity_item_interval"/>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@android:color/white"
-            android:orientation="vertical">
-
-            <LinearLayout style="@style/style_personal_modify_data_item">
-
-                <TextView
-                    style="@style/style_Personal_modify_data_text_size"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="个性签名："/>
+                    android:text="       姓名："/>
 
                 <EditText
                     style="@style/style_Personal_modify_data_text_size"
@@ -244,51 +60,268 @@
                     android:hint="未填写"/>
             </LinearLayout>
 
-            <View style="@style/style_line"/>
+            <include layout="@layout/activity_item_interval"/>
 
             <LinearLayout
-                style="@style/style_personal_modify_data_item"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp">
+                android:background="@android:color/white"
+                android:orientation="vertical">
 
-                <EditText
-                    style="@style/style_Personal_modify_data_text_size"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@null"
-                    android:gravity="left"
-                    android:hint="说点什么吧..."
-                    android:lines="3"/>
+                <LinearLayout style="@style/style_personal_modify_data_item">
+
+                    <TextView
+                        style="@style/style_Personal_modify_data_text_size"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="绑定手机："/>
+
+                    <EditText
+                        style="@style/style_Personal_modify_data_text_size"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@null"
+                        android:gravity="right"
+                        android:hint="未填写"
+                        android:inputType="number"/>
+                </LinearLayout>
+
+                <View style="@style/style_line"/>
+
+                <LinearLayout style="@style/style_personal_modify_data_item">
+
+                    <TextView
+                        style="@style/style_Personal_modify_data_text_size"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="          QQ："/>
+
+                    <EditText
+                        style="@style/style_Personal_modify_data_text_size"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@null"
+                        android:gravity="right"
+                        android:hint="未填写"
+                        android:inputType="number"/>
+
+                </LinearLayout>
+
+                <View style="@style/style_line"/>
+
+                <LinearLayout style="@style/style_personal_modify_data_item">
+
+                    <TextView
+                        style="@style/style_Personal_modify_data_text_size"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="        性别："/>
+
+                    <RadioGroup
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="20dp"
+                            android:layout_weight="1"/>
+
+                        <RadioButton
+                            style="@style/style_Personal_modify_data_text_size"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="男"/>
+
+                        <RadioButton
+                            style="@style/style_Personal_modify_data_text_size"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="女"/>
+                    </RadioGroup>
+                </LinearLayout>
+
+                <View style="@style/style_line"/>
+
+                <LinearLayout style="@style/style_personal_modify_data_item">
+
+                    <TextView
+                        style="@style/style_Personal_modify_data_text_size"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="出生日期："/>
+
+                    <EditText
+                        style="@style/style_Personal_modify_data_text_size"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@null"
+                        android:gravity="right"
+                        android:hint="未填写"
+                        />
+                </LinearLayout>
+
+                <View style="@style/style_line"/>
+
+                <LinearLayout style="@style/style_personal_modify_data_item">
+
+                    <TextView
+                        style="@style/style_Personal_modify_data_text_size"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="    现居地："/>
+
+                    <EditText
+                        style="@style/style_Personal_modify_data_text_size"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@null"
+                        android:gravity="right"
+                        android:hint="未填写"
+                        />
+                </LinearLayout>
             </LinearLayout>
 
-        </LinearLayout>
+            <include layout="@layout/activity_item_interval"/>
 
-        <include layout="@layout/activity_item_interval"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/white"
+                android:orientation="vertical">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@android:color/white"
-            android:orientation="vertical">
+                <LinearLayout style="@style/style_personal_modify_data_item">
 
-            <LinearLayout style="@style/style_personal_modify_data_item">
+                    <TextView
+                        style="@style/style_Personal_modify_data_text_size"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="      邮箱："/>
 
-                <TextView
-                    style="@style/style_Personal_modify_data_text_size"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="个人标识符："/>
+                    <EditText
+                        style="@style/style_Personal_modify_data_text_size"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@null"
+                        android:gravity="right"
+                        android:hint="未填写"
+                        />
+                </LinearLayout>
 
-                <TextView
-                    style="@style/style_Personal_modify_data_text_size"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@null"
-                    android:gravity="right"
-                    android:hint="未填写"/>
+                <View style="@style/style_line"/>
+
+                <LinearLayout style="@style/style_personal_modify_data_item">
+
+                    <TextView
+                        style="@style/style_Personal_modify_data_text_size"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="      年龄："/>
+
+                    <EditText
+                        style="@style/style_Personal_modify_data_text_size"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@null"
+                        android:gravity="right"
+                        android:hint="未填写"
+                        />
+                </LinearLayout>
+
+                <View style="@style/style_line"/>
+
+                <LinearLayout style="@style/style_personal_modify_data_item">
+
+                    <TextView
+                        style="@style/style_Personal_modify_data_text_size"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="    微信号："/>
+
+                    <EditText
+                        style="@style/style_Personal_modify_data_text_size"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@null"
+                        android:gravity="right"
+                        android:hint="未填写"
+                        />
+                </LinearLayout>
 
             </LinearLayout>
 
+            <include layout="@layout/activity_item_interval"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/white"
+                android:orientation="vertical">
+
+                <LinearLayout style="@style/style_personal_modify_data_item">
+
+                    <TextView
+                        style="@style/style_Personal_modify_data_text_size"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="个性签名："/>
+
+                    <EditText
+                        style="@style/style_Personal_modify_data_text_size"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@null"
+                        android:gravity="right"
+                        android:hint="未填写"/>
+                </LinearLayout>
+
+                <View style="@style/style_line"/>
+
+                <LinearLayout
+                    style="@style/style_personal_modify_data_item"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp">
+
+                    <EditText
+                        style="@style/style_Personal_modify_data_text_size"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@null"
+                        android:gravity="left"
+                        android:hint="说点什么吧..."
+                        android:lines="3"/>
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <include layout="@layout/activity_item_interval"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/white"
+                android:orientation="vertical">
+
+                <LinearLayout style="@style/style_personal_modify_data_item">
+
+                    <TextView
+                        style="@style/style_Personal_modify_data_text_size"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="个人标识符："/>
+
+                    <TextView
+                        style="@style/style_Personal_modify_data_text_size"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@null"
+                        android:gravity="right"
+                        android:hint="未填写"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
         </LinearLayout>
-    </LinearLayout>
-</ScrollView>
+    </ScrollView>
+
+</LinearLayout>
