@@ -10,7 +10,6 @@ import android.os.Handler;
 import android.os.Message;
 import android.support.annotation.Nullable;
 import android.support.v4.view.ViewPager;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -74,6 +73,10 @@ public class PageHomeFragmentActivity extends Fragment implements BaseActivity, 
         }
     };
     private int mHeadPos = 1;
+    private ImageView mHome_ll_ll_iv_ReleaseProject;
+    private ImageView mHome_ll_ll_iv_memberAdvice;
+    private ImageView mHome_ll_ll_iv_ceo_school;
+    private ImageView mHome_ll_ll_iv_warCooperative;
 
     /**
      * mHeadLine要显式文字时，调用。
@@ -132,6 +135,10 @@ public class PageHomeFragmentActivity extends Fragment implements BaseActivity, 
         slide_text = (TextView) view.findViewById(R.id.slide_text);
         ll_rl_iv_SwitchSlideMenu = (ImageView) view.findViewById(R.id.ll_rl_iv_SwitchSlideMenu);
         mHeadLine = (TextView) view.findViewById(R.id.Home_ll_ll_tv_head_line);
+        mHome_ll_ll_iv_ReleaseProject = ((ImageView) view.findViewById(R.id.Home_ll_ll_iv_ReleaseProject));
+        mHome_ll_ll_iv_memberAdvice = ((ImageView) view.findViewById(R.id.Home_ll_ll_iv_MemberAdvice));
+        mHome_ll_ll_iv_ceo_school = ((ImageView) view.findViewById(R.id.Home_ll_ll_iv_CEO_School));
+        mHome_ll_ll_iv_warCooperative = ((ImageView) view.findViewById(R.id.Home_ll_ll_iv_WarCooperative));
     }
 
     @Override
@@ -144,6 +151,7 @@ public class PageHomeFragmentActivity extends Fragment implements BaseActivity, 
     public void initListener() {
         slide_Pager.addOnPageChangeListener(new SlidePageChange(this));
         ll_rl_iv_SwitchSlideMenu.setOnClickListener(this);
+        mHome_ll_ll_iv_ReleaseProject.setOnClickListener(this);
     }
 
     @Override
@@ -222,6 +230,9 @@ public class PageHomeFragmentActivity extends Fragment implements BaseActivity, 
         switch (v.getId()) {
             case R.id.ll_rl_iv_SwitchSlideMenu:
                 mMainActivity.rl_ssb_SlideSideBar.setMenuShowing(!mMainActivity.rl_ssb_SlideSideBar.getMenuShowing());
+                break;
+            case R.id.Home_ll_ll_iv_ReleaseProject:
+                // TODO: 17/1/3/0003  
                 break;
         }
 

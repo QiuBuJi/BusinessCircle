@@ -41,18 +41,22 @@
         android:orientation="horizontal">
 
         <ImageView
+            android:id="@+id/Home_ll_ll_iv_ReleaseProject"
             style="@style/style_home_item"
             android:src="@mipmap/icon_haoxiangmufabu"/>
 
         <ImageView
+            android:id="@+id/Home_ll_ll_iv_CEO_School"
             style="@style/style_home_item"
             android:src="@mipmap/icon_ceoshangxueyuan"/>
 
         <ImageView
+            android:id="@+id/Home_ll_ll_iv_MemberAdvice"
             style="@style/style_home_item"
             android:src="@mipmap/icon_vip"/>
 
         <ImageView
+            android:id="@+id/Home_ll_ll_iv_WarCooperative"
             style="@style/style_home_item"
             android:src="@mipmap/icon_zhanlv"/>
 
