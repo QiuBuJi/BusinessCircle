@@ -232,7 +232,8 @@ public class PageHomeFragmentActivity extends Fragment implements BaseActivity, 
                 mMainActivity.rl_ssb_SlideSideBar.setMenuShowing(!mMainActivity.rl_ssb_SlideSideBar.getMenuShowing());
                 break;
             case R.id.Home_ll_ll_iv_ReleaseProject:
-                // TODO: 17/1/3/0003  
+                // TODO: 17/1/3/0003
+
                 break;
         }
 
