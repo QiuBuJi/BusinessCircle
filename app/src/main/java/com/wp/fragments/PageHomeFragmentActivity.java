@@ -60,19 +60,46 @@ public class PageHomeFragmentActivity extends Fragment implements BaseActivity, 
                     slide_Pager.setCurrentItem(slide_Pager.getCurrentItem() + 1);
                     break;
                 case 1:
+                    onShowHeadLine(mHeadLine);
                     int width = mHeadLine.getWidth();
-                    ObjectAnimator obj = ObjectAnimator.ofFloat(mHeadLine, "TranslationX", width, -width);
+                    int width1 = width;
+                    float TotalSize = mHeadLine.getText().length() * mHeadLine.getTextSize();//文字总像素长度
+                    if (TotalSize < width) width1 = (int) TotalSize;
+
+                    ObjectAnimator obj = ObjectAnimator.ofFloat(mHeadLine, "TranslationX", width, -width1);
                     obj.setDuration(mHeadLineDuration);
                     obj.start();
                     break;
             }
         }
     };
+    private int mHeadPos = 1;
+
+    /**
+     * mHeadLine要显式文字时，调用。
+     *
+     * @param headLine 设置要显式的文字的控件。
+     */
+    private void onShowHeadLine(TextView headLine) {
+        String[] HeadNews = {
+                "This is the test text,it can showing on the screen.",
+                "two two two two two two two",
+                "three three",
+                "fourfourfourfourfourfourfourfourfour"};
+        headLine.setText(HeadNews[mHeadPos]);
+        mHeadPos++;
+        if (mHeadPos > HeadNews.length - 1) {
+            mHeadPos = 0;
+        }
+    }
+
+
     public String[] texts;
     private MainActivity mMainActivity;
     private TextView mHeadLine;
     private int mPosX;
     private int mHeadLineDuration = 9000;
+
 
     public PageHomeFragmentActivity() {
 
