@@ -54,17 +54,16 @@ public class PageHomeFragmentActivity extends Fragment implements BaseActivity, 
         @Override
         public void handleMessage(Message msg) {
             super.handleMessage(msg);
-            slide_Pager.setCurrentItem(slide_Pager.getCurrentItem() + 1);
 
             switch (msg.what) {
+                case 0:
+                    slide_Pager.setCurrentItem(slide_Pager.getCurrentItem() + 1);
+                    break;
                 case 1:
-
-                    float WidthInPixel = mHeadLine.getTextSize() * mHeadLine.getText().length();
-                    // TODO: 2017/1/3/003 跑马文字效果
-//
-//                    ObjectAnimator obj = ObjectAnimator.ofFloat(mHeadLine, "TranslationX", mHeadLine.getWidth(), -WidthInPixel);
-//                    obj.setDuration(2000);
-//                    obj.start();
+                    int width = mHeadLine.getWidth();
+                    ObjectAnimator obj = ObjectAnimator.ofFloat(mHeadLine, "TranslationX", width, -width);
+                    obj.setDuration(mHeadLineDuration);
+                    obj.start();
                     break;
             }
         }
@@ -72,6 +71,8 @@ public class PageHomeFragmentActivity extends Fragment implements BaseActivity, 
     public String[] texts;
     private MainActivity mMainActivity;
     private TextView mHeadLine;
+    private int mPosX;
+    private int mHeadLineDuration = 9000;
 
     public PageHomeFragmentActivity() {
 
@@ -173,21 +174,13 @@ public class PageHomeFragmentActivity extends Fragment implements BaseActivity, 
             e.printStackTrace();
         }
 
+        //启动“商圈头条”动画
         new Timer().schedule(new TimerTask() {
             @Override
             public void run() {
-
-                mHeadLine.setTranslationX(0);
-                mHeadLine.getTextSize();
-                Log.d("msg", "getTextSize: " + mHeadLine.getTextSize());
-                Log.d("msg", "length: " + mHeadLine.getText().length());
-
                 handler.sendEmptyMessage(1);
-                // TODO: 2017/1/3/003
-
             }
-        }, 0, 3000);
-
+        }, 500, mHeadLineDuration + 700);
 
     }
 

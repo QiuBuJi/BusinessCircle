@@ -100,7 +100,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:lines="1"
-            android:text="hello my worsadfdsfsdfsdfsdfsfld ishello hello my worsadfdsfsdfsdfsdfsfld ishello hello my worsadfdsfsdfsdfsdfsfld ishello my hello my hello my  hereworld is hereworld is here"/>
+            android:ellipsize="end"
+            android:text="hello my worsadfdsfsdfsdfsdfsfld ishello hello my worsadfdsfsdfsdfsdfsfld ishello hello my wo"/>
 
     </LinearLayout>
 
