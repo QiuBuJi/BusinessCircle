@@ -4,18 +4,22 @@ import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import android.widget.Toast;
+
 import com.wp.fragments.PageContactFragmentActivity;
 import com.wp.fragments.PageConversationFragmentActivity;
 import com.wp.fragments.PageHomeFragmentActivity;
 import com.wp.fragments.PagePersonalFragmentActivity;
 import com.wp.slide_menu.JewelBox;
 import com.wp.slide_menu.MyCollection;
+
 import static com.wp.businesscircle.R.mipmap.icon_gerenzhongxin;
 import static com.wp.businesscircle.R.mipmap.icon_gerenzhongxin_click;
 import static com.wp.businesscircle.R.mipmap.icon_liaotian;
@@ -145,20 +149,34 @@ public class MainActivity extends AppCompatActivity implements BaseActivity, Vie
         }
     }
 
+    /**
+     * 重写onBackPressed实现2次点击退出。
+     * duration为限制时间(ms)
+     */
     @Override
     public void onBackPressed() {
-        super.onBackPressed();
-        if (IsPressOnce) {
-            IsPressOnce = false;
-            mBackPressMillis = System.currentTimeMillis() - mBackPressMillis;
-            // TODO: 17/1/2/0002  
+        int duration = 500;//ms
 
+        if (IsPressOnce) {
+//            IsPressOnce = false;
+            mBackPressMillis = System.currentTimeMillis() - mBackPressMillis;
+            if (mBackPressMillis < duration) {
+                super.onBackPressed();
+            }
 
         } else {
             IsPressOnce = true;
             mBackPressMillis = System.currentTimeMillis();
-        }
+            Toast.makeText(this, "500ms内，再次点击退出!", Toast.LENGTH_SHORT).show();
 
+            //duration时间后设置IsPressOnce为false，再次点击时，重新设置起始时间。
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    IsPressOnce = false;
+                }
+            }, duration);
+        }
     }
 
     public void switchPage(MenuBar menuBar) {
