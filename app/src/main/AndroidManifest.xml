@@ -20,6 +20,10 @@
         <activity android:name="com.wp.personal.Attention"/>
         <activity android:name="com.wp.slide_menu.JewelBox"/>
         <activity android:name="com.wp.slide_menu.MyCollection"/>
+        <activity android:name="com.wp.home.ReleaseProject"/>
+        <activity android:name="com.wp.home.CEOSchool"/>
+        <activity android:name="com.wp.home.MemberAdvice"/>
+        <activity android:name="com.wp.home.WarCooperative"/>
     </application>
 
 </manifest>

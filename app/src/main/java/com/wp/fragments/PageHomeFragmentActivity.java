@@ -4,6 +4,7 @@ import android.animation.ObjectAnimator;
 import android.annotation.SuppressLint;
 import android.app.Fragment;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
@@ -25,6 +26,10 @@ import com.wp.businesscircle.MainActivity;
 import com.wp.businesscircle.PicturePagerAdapter;
 import com.wp.businesscircle.R;
 import com.wp.businesscircle.SlidePageChange;
+import com.wp.home.CEOSchool;
+import com.wp.home.MemberAdvice;
+import com.wp.home.ReleaseProject;
+import com.wp.home.WarCooperative;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
@@ -74,9 +79,9 @@ public class PageHomeFragmentActivity extends Fragment implements BaseActivity, 
     };
     private int mHeadPos = 1;
     private ImageView mHome_ll_ll_iv_ReleaseProject;
-    private ImageView mHome_ll_ll_iv_memberAdvice;
-    private ImageView mHome_ll_ll_iv_ceo_school;
-    private ImageView mHome_ll_ll_iv_warCooperative;
+    private ImageView mHome_ll_ll_iv_MemberAdvice;
+    private ImageView mHome_ll_ll_iv_CEO_School;
+    private ImageView mHome_ll_ll_iv_WarCooperative;
 
     /**
      * mHeadLine要显式文字时，调用。
@@ -136,9 +141,9 @@ public class PageHomeFragmentActivity extends Fragment implements BaseActivity, 
         ll_rl_iv_SwitchSlideMenu = (ImageView) view.findViewById(R.id.ll_rl_iv_SwitchSlideMenu);
         mHeadLine = (TextView) view.findViewById(R.id.Home_ll_ll_tv_head_line);
         mHome_ll_ll_iv_ReleaseProject = ((ImageView) view.findViewById(R.id.Home_ll_ll_iv_ReleaseProject));
-        mHome_ll_ll_iv_memberAdvice = ((ImageView) view.findViewById(R.id.Home_ll_ll_iv_MemberAdvice));
-        mHome_ll_ll_iv_ceo_school = ((ImageView) view.findViewById(R.id.Home_ll_ll_iv_CEO_School));
-        mHome_ll_ll_iv_warCooperative = ((ImageView) view.findViewById(R.id.Home_ll_ll_iv_WarCooperative));
+        mHome_ll_ll_iv_CEO_School = ((ImageView) view.findViewById(R.id.Home_ll_ll_iv_CEO_School));
+        mHome_ll_ll_iv_MemberAdvice = ((ImageView) view.findViewById(R.id.Home_ll_ll_iv_MemberAdvice));
+        mHome_ll_ll_iv_WarCooperative = ((ImageView) view.findViewById(R.id.Home_ll_ll_iv_WarCooperative));
     }
 
     @Override
@@ -152,6 +157,9 @@ public class PageHomeFragmentActivity extends Fragment implements BaseActivity, 
         slide_Pager.addOnPageChangeListener(new SlidePageChange(this));
         ll_rl_iv_SwitchSlideMenu.setOnClickListener(this);
         mHome_ll_ll_iv_ReleaseProject.setOnClickListener(this);
+        mHome_ll_ll_iv_CEO_School.setOnClickListener(this);
+        mHome_ll_ll_iv_MemberAdvice.setOnClickListener(this);
+        mHome_ll_ll_iv_WarCooperative.setOnClickListener(this);
     }
 
     @Override
@@ -232,8 +240,16 @@ public class PageHomeFragmentActivity extends Fragment implements BaseActivity, 
                 mMainActivity.rl_ssb_SlideSideBar.setMenuShowing(!mMainActivity.rl_ssb_SlideSideBar.getMenuShowing());
                 break;
             case R.id.Home_ll_ll_iv_ReleaseProject:
-                // TODO: 17/1/3/0003
-
+                startActivity(new Intent(view.getContext(), ReleaseProject.class));
+                break;
+            case R.id.Home_ll_ll_iv_CEO_School:
+                startActivity(new Intent(view.getContext(), CEOSchool.class));
+                break;
+            case R.id.Home_ll_ll_iv_MemberAdvice:
+                startActivity(new Intent(view.getContext(), MemberAdvice.class));
+                break;
+            case R.id.Home_ll_ll_iv_WarCooperative:
+                startActivity(new Intent(view.getContext(), WarCooperative.class));
                 break;
         }
 

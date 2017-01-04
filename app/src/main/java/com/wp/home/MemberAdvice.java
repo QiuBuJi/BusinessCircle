@@ -9,16 +9,16 @@ import com.wp.businesscircle.BaseActivity;
 import com.wp.businesscircle.R;
 
 /**
- * Created by Administrator on 17/1/3/0003.
+ * Created by Administrator on 17/1/4/0004.
  */
 
-public class ReleaseProject extends Activity implements BaseActivity, View.OnClickListener {
-    private android.widget.TextView mReleaseProject_ll_rl_tv_back;
+public class MemberAdvice extends Activity implements BaseActivity, View.OnClickListener {
+    private android.widget.TextView mMemberAdvice_ll_rl_tv_back;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home_release_project);
+        setContentView(R.layout.activity_home_member_advice);
         initView();
         initListener();
         initData();
@@ -26,12 +26,13 @@ public class ReleaseProject extends Activity implements BaseActivity, View.OnCli
 
     @Override
     public void initView() {
-        this.mReleaseProject_ll_rl_tv_back = (TextView) findViewById(R.id.ReleaseProject_ll_rl_tv_back);
+        this.mMemberAdvice_ll_rl_tv_back = (TextView) findViewById(R.id.MemberAdvice_ll_rl_tv_back);
+
     }
 
     @Override
     public void initListener() {
-        mReleaseProject_ll_rl_tv_back.setOnClickListener(this);
+        mMemberAdvice_ll_rl_tv_back.setOnClickListener(this);
     }
 
     @Override
@@ -41,10 +42,13 @@ public class ReleaseProject extends Activity implements BaseActivity, View.OnCli
 
     @Override
     public void onClick(View v) {
+
         switch (v.getId()) {
-            case R.id.ReleaseProject_ll_rl_tv_back:
+            case R.id.MemberAdvice_ll_rl_tv_back:
                 finish();
                 break;
+
         }
+
     }
 }
