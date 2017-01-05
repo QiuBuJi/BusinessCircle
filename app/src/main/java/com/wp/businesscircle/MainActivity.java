@@ -2,7 +2,9 @@ package com.wp.businesscircle;
 
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
+import android.content.ContentResolver;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
@@ -36,6 +38,7 @@ import static com.wp.businesscircle.R.mipmap.icon_tongxunlu_click;
 -- 籍    贯：重庆 --- ---
  * 开发平台：Android studio v2.2.2
  * 托管平台：GitHub
+ * 托管地址：https://github.com/QiuBuJi/BusinessCircle.git
  * 经历时间：
  *     2016年12月15日      想好项目名称，创建工程。
  *            ~           学习ing...
@@ -48,7 +51,8 @@ import static com.wp.businesscircle.R.mipmap.icon_tongxunlu_click;
  *     2016年12月30日      侧滑完善中...
  *     2017年12月31日~01日 放元旦
  *     2017年01月02日      添加页面...
- *
+ *     2017年01月03日~04日 添加页面...
+ *     2017年01月05日      复习ContentResolver
  * */
 public class MainActivity extends AppCompatActivity implements BaseActivity, View.OnClickListener {
 
@@ -118,6 +122,8 @@ public class MainActivity extends AppCompatActivity implements BaseActivity, Vie
         switchPage(MenuBar.home);
         mll_SlideMenu.setTranslationX(-mll_SlideMenu.getWidth() * 0.6f);
 
+        ContentResolver cr = getContentResolver();
+        cr.insert(Uri.parse(""), null);
 
     }
 
