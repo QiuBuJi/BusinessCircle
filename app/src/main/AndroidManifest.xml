@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="com.wp.businesscircle">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
     <application
         android:allowBackup="true"
         android:icon="@mipmap/logo"
@@ -24,6 +25,7 @@
         <activity android:name="com.wp.home.CEOSchool"/>
         <activity android:name="com.wp.home.MemberAdvice"/>
         <activity android:name="com.wp.home.WarCooperative"/>
+        <activity android:name="com.wp.businesscircle.SplashActivity"/>
     </application>
 
 </manifest>

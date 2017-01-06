@@ -80,9 +80,19 @@ public class MainActivity extends AppCompatActivity implements BaseActivity, Vie
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        //进入展示页
+        startActivityForResult(new Intent(this, SplashActivity.class), 1);
+
         initView();
         initListener();
         initData();
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
     }
 
     @Override
@@ -121,9 +131,6 @@ public class MainActivity extends AppCompatActivity implements BaseActivity, Vie
 
         switchPage(MenuBar.home);
         mll_SlideMenu.setTranslationX(-mll_SlideMenu.getWidth() * 0.6f);
-
-        ContentResolver cr = getContentResolver();
-        cr.insert(Uri.parse(""), null);
 
     }
 
