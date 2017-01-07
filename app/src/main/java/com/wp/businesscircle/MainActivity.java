@@ -53,6 +53,8 @@ import static com.wp.businesscircle.R.mipmap.icon_tongxunlu_click;
  *     2017年01月02日      添加页面...
  *     2017年01月03日~04日 添加页面...
  *     2017年01月05日      复习ContentResolver
+ *     2017年01月06日      学习编写开始页面&版本更新。（晚上）添加开始页面、版本更新逻辑
+ *     2017年01月07日      学习自定义复合layout
  * */
 public class MainActivity extends AppCompatActivity implements BaseActivity, View.OnClickListener {
 
