@@ -53,6 +53,7 @@ import static com.wp.businesscircle.R.mipmap.icon_tongxunlu_click;
  *     2017年01月02日      添加页面...
  *     2017年01月03日~04日 添加页面...
  *     2017年01月05日      复习ContentResolver
+ *     2017年01月11日      学习
  * */
 public class MainActivity extends AppCompatActivity implements BaseActivity, View.OnClickListener {
 
@@ -180,7 +181,7 @@ public class MainActivity extends AppCompatActivity implements BaseActivity, Vie
         } else {
             IsPressOnce = true;
             mBackPressMillis = System.currentTimeMillis();
-            Toast.makeText(this, "500ms内，再次点击退出!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "快速双击退出!", Toast.LENGTH_SHORT).show();
 
             //duration时间后设置IsPressOnce为false，再次点击时，重新设置起始时间。
             new Handler().postDelayed(new Runnable() {
