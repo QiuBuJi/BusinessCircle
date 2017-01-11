@@ -85,7 +85,7 @@ public class MainActivity extends AppCompatActivity implements BaseActivity, Vie
         setContentView(R.layout.activity_main);
 
         //进入展示页
-        startActivityForResult(new Intent(this, SplashActivity.class), 1);
+//        startActivityForResult(new Intent(this, SplashActivity.class), 1);
 
         initView();
         initListener();

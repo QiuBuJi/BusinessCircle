@@ -38,13 +38,6 @@ public class SlideSideBar extends ViewGroup {
      */
     private void init() {
         mScroller = new Scroller(getContext());
-
-        setOnShowStateChangeListener(new OnShowStateChangeListener() {
-            @Override
-            public void onShowStateChangeListener(boolean ShowState) {
-                Log.d(TAG, "onShowStateChangeListener: " + ShowState);
-            }
-        });
     }
 
     public SlideSideBar(Context context) {
@@ -69,6 +62,8 @@ public class SlideSideBar extends ViewGroup {
         //取出子控件
         mLeftView = getChildAt(0);
         mRightView = getChildAt(1);
+
+        mLeftView.setClickable(false);
 
         //测量子控件尺寸
         mLeftView.measure(widthMeasureSpec, heightMeasureSpec);
@@ -223,6 +218,11 @@ public class SlideSideBar extends ViewGroup {
         return mShowing;
     }
 
+    /**
+     * 侧滑显示状态改变的监听器
+     *
+     * @param listener 为true显示，false隐藏。
+     */
     public void setOnShowStateChangeListener(OnShowStateChangeListener listener) {
         mShowStateChangeListener = listener;
     }
