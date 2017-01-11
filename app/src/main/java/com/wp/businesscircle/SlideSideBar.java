@@ -1,7 +1,6 @@
 package com.wp.businesscircle;
 
 import android.content.Context;
-import android.graphics.Color;
 import android.graphics.Point;
 import android.util.AttributeSet;
 import android.util.Log;
@@ -32,12 +31,20 @@ public class SlideSideBar extends ViewGroup {
     private Point mPt;
     private double mDuration = 1.2;//持续时间
     private boolean mShowing;//侧滑菜单显示状态
+    private OnShowStateChangeListener mShowStateChangeListener;
 
     /**
      * 初始化
      */
     private void init() {
         mScroller = new Scroller(getContext());
+
+        setOnShowStateChangeListener(new OnShowStateChangeListener() {
+            @Override
+            public void onShowStateChangeListener(boolean ShowState) {
+                Log.d(TAG, "onShowStateChangeListener: " + ShowState);
+            }
+        });
     }
 
     public SlideSideBar(Context context) {
@@ -123,9 +130,17 @@ public class SlideSideBar extends ViewGroup {
                         //向右滑动。→
                         double offsetX = mParkPos - mLimitX;
                         mScroller.startScroll((int) mLimitX, 0, (int) (offsetX), 0, (int) ((int) Math.abs(offsetX) * mDuration));
+
+                        //侧滑菜单，显式状态改变时，调用。
+                        if (mShowStateChangeListener != null && mShowing == false)
+                            mShowStateChangeListener.onShowStateChangeListener(true);
                     } else {
                         //向左滑动 ←
                         mScroller.startScroll((int) mLimitX, 0, (int) (-mLimitX), 0, (int) ((int) Math.abs(mLimitX) * mDuration));
+
+                        //侧滑菜单，显式状态改变时，调用。
+                        if (mShowStateChangeListener != null && mShowing == true)
+                            mShowStateChangeListener.onShowStateChangeListener(false);
                     }
 
                     //这个是mScroller需要
@@ -182,8 +197,7 @@ public class SlideSideBar extends ViewGroup {
      * @param isShowing 为true，显示侧滑菜单。false，隐藏侧滑菜单。
      */
     public void setMenuShowing(boolean isShowing) {
-        mShowing = isShowing;
-        if (mShowing) {//mMoveOffset可用于判断手指滑动方向，
+        if (isShowing) {//mMoveOffset可用于判断手指滑动方向，
             // 向右滑动。→
             double offsetX = mParkPos - mLimitX;//求出右停靠位置mParkPos与mLimitX之间的位移
             mScroller.startScroll((int) mLimitX, 0, (int) (offsetX), 0, (int) ((int) Math.abs(offsetX) * mDuration));
@@ -191,6 +205,12 @@ public class SlideSideBar extends ViewGroup {
             //向左滑动 ←
             mScroller.startScroll((int) mLimitX, 0, (int) (-mLimitX), 0, (int) ((int) Math.abs(mLimitX) * mDuration));
         }
+
+        //侧滑菜单，显式状态改变时，调用。
+        if (mShowStateChangeListener != null && mShowing ^ isShowing)
+            mShowStateChangeListener.onShowStateChangeListener(isShowing);
+
+        mShowing = isShowing;//保存状态
         invalidate();
     }
 
@@ -201,5 +221,13 @@ public class SlideSideBar extends ViewGroup {
      */
     public boolean getMenuShowing() {
         return mShowing;
+    }
+
+    public void setOnShowStateChangeListener(OnShowStateChangeListener listener) {
+        mShowStateChangeListener = listener;
+    }
+
+    interface OnShowStateChangeListener {
+        void onShowStateChangeListener(boolean ShowState);
     }
 }
