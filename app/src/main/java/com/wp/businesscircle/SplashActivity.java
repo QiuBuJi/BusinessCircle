@@ -1,5 +1,7 @@
 package com.wp.businesscircle;
 
+import android.animation.Animator;
+import android.animation.ObjectAnimator;
 import android.app.Activity;
 import android.content.DialogInterface;
 import android.content.pm.PackageInfo;
@@ -7,12 +9,14 @@ import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AlertDialog;
+import android.view.animation.AlphaAnimation;
+import android.view.animation.Animation;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -28,11 +32,15 @@ public class SplashActivity extends Activity {
     private android.widget.TextView rl_tv_version;
     private UpdateJsonData mUpdateData;
     private PackageInfo mPackageInfo;
+    private TextView rltvversion;
+    private android.widget.RelativeLayout rl_splash_main;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
+        this.rl_splash_main = (RelativeLayout) findViewById(R.id.rl_splash_main);
+        this.rltvversion = (TextView) findViewById(R.id.rl_tv_version);
         this.rl_tv_version = (TextView) findViewById(R.id.rl_tv_version);
 
         mPackageInfo = getPackageInfo();
@@ -66,6 +74,8 @@ public class SplashActivity extends Activity {
                     } else {//已是最新版本
                         goMainActivity();
                     }
+                } else {
+                    goMainActivity();
                 }
             }
         }.start();
@@ -76,8 +86,37 @@ public class SplashActivity extends Activity {
      * 返回主页面
      */
     private void goMainActivity() {
-        setResult(1);
-        finish();
+        final AlphaAnimation alphaAnimation = new AlphaAnimation(1.0f, 0.1f);
+        alphaAnimation.setDuration(500);
+        alphaAnimation.setFillAfter(true);
+
+        alphaAnimation.setAnimationListener(new Animation.AnimationListener() {
+            @Override
+            public void onAnimationStart(Animation animation) {
+
+            }
+
+            @Override
+            public void onAnimationEnd(Animation animation) {
+                setResult(1);
+                finish();
+            }
+
+            @Override
+            public void onAnimationRepeat(Animation animation) {
+
+            }
+        });
+
+
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                rl_splash_main.startAnimation(alphaAnimation);
+            }
+        });
+
+
     }
 
     private void showApkUpdateDialog() {

@@ -182,7 +182,7 @@ public class MainActivity extends AppCompatActivity implements BaseActivity, Vie
         } else {
             IsPressOnce = true;
             mBackPressMillis = System.currentTimeMillis();
-            Toast.makeText(this, "500ms内，再次点击退出!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "快速双击退出!", Toast.LENGTH_SHORT).show();
 
             //duration时间后设置IsPressOnce为false，再次点击时，重新设置起始时间。
             new Handler().postDelayed(new Runnable() {
